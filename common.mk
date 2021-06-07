@@ -300,9 +300,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
-# Doze
+# DeviceSettings
 PRODUCT_PACKAGES += \
-    OnePlusDoze
+    DeviceSettings
 
 # Dolby
 PRODUCT_PACKAGES += \
@@ -532,10 +532,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     KeyHandler \
     tri-state-key-calibrate
-
-# Trust HAL
-#PRODUCT_PACKAGES += \
-    #vendor.lineage.trust@1.0-service
 
 # Update engine
 PRODUCT_PACKAGES += \
