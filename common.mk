@@ -291,9 +291,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
-# Doze
+# DeviceSettings
 PRODUCT_PACKAGES += \
-    OnePlusDoze
+    DeviceSettings
 
 # DRM
 PRODUCT_PACKAGES += \
