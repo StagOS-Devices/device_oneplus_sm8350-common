@@ -43,9 +43,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
-# VNDK
-PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -207,6 +204,7 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    charger_fw_fstab.qti \
     fstab.qcom \
     ftm_power_config.sh \
     init.class_main.sh \
