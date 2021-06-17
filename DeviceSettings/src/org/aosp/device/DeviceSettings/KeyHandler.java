@@ -16,10 +16,17 @@
 
 package org.aosp.device.DeviceSettings;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.media.AudioManager;
+import android.os.FileObserver;
+import android.os.RemoteException;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
@@ -28,6 +35,7 @@ import org.aosp.device.DeviceSettings.Services.VolumeService;
 
 public class KeyHandler implements DeviceKeyHandler {
     private static final String TAG = KeyHandler.class.getSimpleName();
+    private static final boolean DEBUG = false;
 
     // Slider key codes
     private static final int MODE_NORMAL = 601;
