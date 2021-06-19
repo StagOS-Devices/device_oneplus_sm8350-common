@@ -33,7 +33,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/oneplus/sm8350-common/sm8350-common-vendor.mk)
 
 # Extra apps
-$(call inherit-product-if-exists, vendor/oneplus/extras/config.mk)
+$(call inherit-product-if-exists, vendor/oneplus/apps/lemonadep/config.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
