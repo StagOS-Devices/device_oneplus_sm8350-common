@@ -62,7 +62,6 @@ BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMO
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := lahaina
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno660
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
@@ -184,9 +183,6 @@ VENDOR_SECURITY_PATCH := 2021-05-01
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
-
-# USB
-TARGET_QTI_USB_SUPPORTS_AUDIO_ACCESSORY := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
