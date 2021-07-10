@@ -21,3 +21,4 @@ type sysfs_project_info, fs_type, sysfs_type;
 type sysfs_tof_control, fs_type, sysfs_type;
 type sysfs_tpd, fs_type, sysfs_type;
 type sysfs_tri_state_key, sysfs_type, fs_type;
+type sysfs_color, fs_type, sysfs_type;
