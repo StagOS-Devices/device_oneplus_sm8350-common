@@ -1,6 +1,9 @@
 # Alert Slider
 type vendor_proc_tri_state_key, fs_type, proc_type;
 
+# files
+type public_adsprpcd_file, file_type;
+
 # Camera
 type vendor_persist_camera_file, file_type;
 
