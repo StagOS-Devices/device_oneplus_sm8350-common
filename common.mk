@@ -228,6 +228,10 @@ PRODUCT_PACKAGES += \
     Gcam
 endif
 
+# Charge control
+PRODUCT_PACKAGES += \
+    vendor.lineage.chgctrl@1.0-service.oneplus_lahaina
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     charger_fw_fstab.qti \
