@@ -30,4 +30,6 @@
     <!-- Whether device supports refresh rate switch -->
     <bool name="config_supportsRefreshRateSwitch">true</bool>
 
+    <!-- For Enabling Battery Heath -->
+    <bool name="config_supportBatteryHealth">true</bool>
 </resources>
