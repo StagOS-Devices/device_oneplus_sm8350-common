@@ -183,6 +183,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0.vendor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
@@ -247,6 +249,8 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.common-V1-ndk_platform \
+    android.hardware.graphics.common-V1-ndk_platform.vendor \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
@@ -294,6 +298,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4.vendor \
     android.hardware.drm@1.4-service.clearkey
 
 # fastbootd
@@ -305,7 +310,16 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.oneplus
     #vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0 \
+    android.hardware.gatekeeper@1.0.vendor
+
 # GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1 \
+    android.hardware.gnss@2.1.vendor
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
     $(LOCAL_PATH)/gps/gnss_antenna_info.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss_antenna_info.conf \
@@ -340,6 +354,11 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    vendor.lineage.livedisplay@2.1-service.oneplus
 
+# Keymaster
+PRODUCT_PACKAGES += \
+   android.hardware.keymaster@4.1 \
+   android.hardware.keymaster@4.1.vendor
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs_lahaina.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -373,6 +392,10 @@ PRODUCT_PACKAGES += \
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
+
+# Neural Networks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -424,6 +447,12 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.6.vendor \
+    android.hardware.radio.config@1.3.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.2.vendor \
+    android.system.net.netd@1.1 \
+    android.system.net.netd@1.1.vendor \
     libprotobuf-cpp-full \
     librmnetctl \
     libxml2
