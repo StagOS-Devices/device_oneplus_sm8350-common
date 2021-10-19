@@ -397,6 +397,9 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2.vendor \
     android.hardware.secure_element@1.2.vendor \
     com.android.nfc_extras \
+    com.gsma.services.nfc \
+    QuickAccessWallet \
+    NfcNci \
     SecureElement \
     Tag
 
