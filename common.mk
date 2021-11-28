@@ -304,6 +304,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OnePlusDoze
 
+# Dolby
+PRODUCT_PACKAGES += \
+    OPSoundTunerOverlay
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
