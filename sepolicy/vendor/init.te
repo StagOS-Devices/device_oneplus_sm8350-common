@@ -1,3 +1,5 @@
 allow init hal_power_service:service_manager add;
 allow init vendor_hal_perf_default:binder { call };
 
+allow init sysfs:file { setattr };
+allow init sysfs_dm:file { setattr };
