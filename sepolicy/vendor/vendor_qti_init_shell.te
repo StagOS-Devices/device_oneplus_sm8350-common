@@ -30,6 +30,10 @@ allow vendor_qti_init_shell loop_device:blk_file { ioctl  open  read };
 
 allow vendor_qti_init_shell ctl_start_prop:property_service { set };
 
+allow vendor_qti_init_shell default_prop:file { getattr  map  open };
+allow vendor_qti_init_shell loop_device:blk_file { ioctl  write };
+allow vendor_qti_init_shell proc_page_cluster:file { open  write };
+
 get_prop(vendor_qti_init_shell, exported_system_prop)
 set_prop(vendor_qti_init_shell, ctl_default_prop)
 set_prop(vendor_qti_init_shell, vendor_memplus_prop)
