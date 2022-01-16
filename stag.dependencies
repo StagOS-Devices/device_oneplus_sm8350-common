@@ -1,0 +1,20 @@
+[
+  {
+    "repository": "LineageOS/android_device_oneplus_common",
+    "target_path": "device/oneplus/common",
+    "branch": "lineage-18.1"
+  },
+  {
+    "repository": "kernel_oneplus_sm8350",
+    "target_path": "kernel/oneplus/sm8350"
+  },
+  {
+    "repository": "vendor_oneplus",
+    "target_path": "vendor/oneplus",
+    "branch": "s12-op9"
+  },
+  {
+    "repository": "vendor_oneplus_extras",
+    "target_path": "vendor/oneplus/extras"
+  }
+]
