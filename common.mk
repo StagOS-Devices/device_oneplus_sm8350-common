@@ -520,8 +520,8 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
 
 # Touch
-#PRODUCT_PACKAGES += \
-    #vendor.lineage.touch@1.0-service.oneplus
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.oneplus
 
 # tri-state-key
 PRODUCT_PACKAGES += \
