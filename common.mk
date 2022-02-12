@@ -255,10 +255,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
     $(LOCAL_PATH)/configs/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
-# DeviceSettings
-PRODUCT_PACKAGES += \
-    DeviceSettings
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk_platform \
@@ -526,8 +522,11 @@ PRODUCT_PACKAGES += \
 # tri-state-key
 PRODUCT_PACKAGES += \
     KeyHandler \
-    tri-state-key-calibrate \
-    tri-state-key_daemon.vendor
+    tri-state-key-calibrate
+
+# Trust HAL
+#PRODUCT_PACKAGES += \
+    #vendor.lineage.trust@1.0-service
 
 # Update engine
 PRODUCT_PACKAGES += \
