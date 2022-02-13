@@ -71,6 +71,12 @@
                 android:resource="@string/device_summary" />
         </activity>
 
+        <activity
+            android:name=".TouchscreenGestureSettings"
+            android:label="@string/touchscreen_gesture_settings_title"
+            android:theme="@style/Theme.SubSettingsBase">
+        </activity>
+
         <!-- DeviceSettings Tile Service -->
         <service
             android:name=".Services.DeviceSettingsTileService"
