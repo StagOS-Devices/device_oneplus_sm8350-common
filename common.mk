@@ -216,6 +216,11 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
+# Google Camera
+RELAX_USES_LIBRARY_CHECK := true
+PRODUCT_PACKAGES += \
+    Gcam
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     charger_fw_fstab.qti \
