@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 #GCam
 include $(CLEAR_VARS)
 LOCAL_MODULE := Gcam
-LOCAL_SRC_FILES := priv-app/Gcam.apk
+LOCAL_SRC_FILES := priv-app/$(LOCAL_MODULE)/$(LOCAL_MODULE).apk
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_OVERRIDES_PACKAGES := SnapdragonCamera Snap Camera2 GoogleCamera

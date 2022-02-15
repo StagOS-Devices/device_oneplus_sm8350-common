@@ -218,6 +218,9 @@ PRODUCT_PACKAGES += \
 
 # Google Camera
 RELAX_USES_LIBRARY_CHECK := true
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/priv-app/Gcam/config/com.google.android.GoogleCameraEng_preferences.xml:$(TARGET_COPY_OUT_VENDOR)/etc/com.google.android.GoogleCameraEng_preferences.xml
+#/data/data/com.google.android.GoogleCameraEng/shared_prefs/com.google.android.GoogleCameraEng_preferences.xml
 PRODUCT_PACKAGES += \
     Gcam
 
@@ -254,7 +257,8 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     vendor.oem_ftm.rc \
     vendor.oem_ftm_svc_disable.rc \
-    vendor_modprobe.sh
+    vendor_modprobe.sh \
+    init.google_camera_config.rc
 
 # Component overrides
 PRODUCT_COPY_FILES += \
