@@ -27,5 +27,4 @@
 
  # copy GCam config
 on property:sys.boot_completed=1
-    copy /vendor/etc/com.google.android.GoogleCameraEng_preferences.xml /data/data/com.google.android.GoogleCameraEng/shared_prefs/com.google.android.GoogleCameraEng_preferences.xml
-    copy /vendor/etc/com.google.android.GoogleCameraEng_preferences.xml /data/data/com.google.android.GoogleCameraEng/shared_prefs/diditwork.xml
+    exec - root -- /vendor/bin/copy_gcam_config.sh

@@ -258,6 +258,7 @@ PRODUCT_PACKAGES += \
     vendor.oem_ftm.rc \
     vendor.oem_ftm_svc_disable.rc \
     vendor_modprobe.sh \
+    copy_gcam_config.sh \
     init.google_camera_config.rc
 
 # Component overrides
