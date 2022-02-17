@@ -34,7 +34,7 @@
         android:targetSdkVersion="29" />
 
     <application
-        android:icon="@drawable/ic_settings_device"
+        android:icon="@drawable/ic_logo"
         android:label="@string/device_title"
         android:theme="@style/Theme.SubSettingsBase"
         android:defaultToDeviceProtectedStorage="true"
