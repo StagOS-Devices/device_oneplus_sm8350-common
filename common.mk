@@ -213,10 +213,12 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
+ifeq ($(WITH_GAPPS), true)
 # Google Camera
 RELAX_USES_LIBRARY_CHECK := true
 PRODUCT_PACKAGES += \
     Gcam
+endif
 
 # Common init scripts
 PRODUCT_PACKAGES += \

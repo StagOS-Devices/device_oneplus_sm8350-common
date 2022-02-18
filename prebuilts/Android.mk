@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(WITH_GAPPS), true)
 #GCam
 include $(CLEAR_VARS)
 LOCAL_MODULE := Gcam
@@ -10,3 +11,4 @@ LOCAL_OVERRIDES_PACKAGES := SnapdragonCamera Snap Camera2 GoogleCamera
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_DEX_PREOPT := false
 include $(BUILD_PREBUILT)
+endif
