@@ -121,7 +121,7 @@ vendor.qcom.bluetooth.soc=hastings
 persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera
 vendor.arcsoft.sn_isHardCopy=0
 vendor.camera.algo.jpeghwencode=1
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera,com.oneplus.camera.service
 
 # Chipset
 ro.soc.manufacturer=Qualcomm
