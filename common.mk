@@ -32,9 +32,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Get Oneplus Camera
 $(call inherit-product-if-exists, vendor/oneplus/apps/sm8350/config.mk)
 
-# Inherit OnePlus-fwk from vendor/oneplus/extras
-$(call inherit-product, vendor/oneplus/extras/OnePlus-fwk.mk)
-
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/sm8350-common/sm8350-common-vendor.mk)
 
@@ -460,11 +457,11 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libstagefrighthw
 
-#PRODUCT_PACKAGES += \
-#    oneplus-fwk.oneplus_lahaina
+PRODUCT_PACKAGES += \
+    oneplus-fwk
 
-#PRODUCT_BOOT_JARS += \
-#    oneplus-fwk.oneplus_lahaina
+PRODUCT_BOOT_JARS += \
+    oneplus-fwk
 
 # Power
 PRODUCT_PACKAGES += \
