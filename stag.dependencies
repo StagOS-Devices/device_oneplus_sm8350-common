@@ -11,7 +11,8 @@
   },
   {
     "repository": "hardware_oneplus",
-    "target_path": "hardware/oneplus"
+    "target_path": "hardware/oneplus",
+    "branch": "s12.1"
   },
   {
     "repository": "android_packages_apps_TouchGestures",
