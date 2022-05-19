@@ -38,9 +38,6 @@
     <!-- Whether device has warp charging support -->
     <bool name="config_hasWarpCharger">true</bool>
 
-    <!-- NightLight FOD -->
-    <bool name="disable_fod_night_light">true</bool>
-
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
 
@@ -50,9 +47,12 @@
     <!-- Flag indicating whether we should enable the adaptive sleep.-->
     <bool name="config_adaptive_sleep_available">true</bool>
 
-     <!-- Package name of a telephony-related system app, such as an IMS service.
+    <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
+    <bool name="config_displayBlanksAfterDoze">false</bool>
+
+    <!-- Package name of a telephony-related system app, such as an IMS service.
          Exempted from privacy indicators. -->
-     <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
+    <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
 
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <string name="config_oemFastChargerStatusPath" translatable="false">"/sys/devices/platform/soc/soc:oplus,chg_intf/oplus_chg/usb/fastchg_status"</string>
