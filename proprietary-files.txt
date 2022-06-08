@@ -930,37 +930,6 @@ vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
-# CVP
-vendor/etc/cvp/v2.0/facedetection/model1.dat
-vendor/etc/cvp/v2.1/facedetection/model2.dat
-vendor/lib64/libcvp2_1.so
-vendor/lib64/libcvp_common.so
-vendor/lib64/libcvpcpuRev_skel.so
-vendor/lib64/vendor.qti.hardware.cvp@1.0.so
-
-# CVP firmware
-vendor/firmware/evass.b01
-vendor/firmware/evass.b02
-vendor/firmware/evass.b03
-vendor/firmware/evass.b04
-vendor/firmware/evass.b05
-vendor/firmware/evass.b06
-vendor/firmware/evass.b07
-vendor/firmware/evass.b08
-vendor/firmware/evass.b09
-vendor/firmware/evass.b10
-vendor/firmware/evass.b11
-vendor/firmware/evass.b12
-vendor/firmware/evass.b13
-vendor/firmware/evass.b14
-vendor/firmware/evass.b15
-vendor/firmware/evass.b16
-vendor/firmware/evass.b17
-vendor/firmware/evass.b18
-vendor/firmware/evass.b19
-vendor/firmware/evass.mbn
-vendor/firmware/evass.mdt
-
 # Diag
 system_ext/lib/vendor.qti.diaghal@1.0.so
 system_ext/lib64/vendor.qti.diaghal@1.0.so
@@ -968,68 +937,6 @@ vendor/bin/diag-router
 vendor/etc/init/vendor.qti.diag.rc
 vendor/lib/vendor.qti.diaghal@1.0.so
 vendor/lib64/vendor.qti.diaghal@1.0.so
-
-# Display (Features)
-vendor/bin/feature_enabler_client
-vendor/etc/init/feature_enabler_client.rc
-vendor/etc/OnePlus_QC_LTM_Commercial_SM8350_2021_01_19.pfm
-vendor/etc/Oplus_QC_LTM_Dev_2020_10_30.pfm
-
-# Display (HDR)
-vendor/lib64/libhdr_tm.so
-
-# Display (HWC)
-odm/lib64/libsnapdragoncolor-pxlw.so
-vendor/bin/hw/vendor.qti.hardware.display.composer-service
-vendor/bin/qdcmss
-vendor/etc/init/qdcmss.rc
-vendor/etc/snapdragon_color_libs_config.xml
-vendor/lib64/libdisplayconfig.qti.so
-vendor/lib64/libdpps.so
-vendor/lib64/libhistogram.so
-vendor/lib64/libqdcm-mode-parser.so
-vendor/lib64/libqdutils.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmutils.so
-vendor/lib64/libsnapdragoncolor-manager.so
-vendor/lib64/libsnapdragoncolor-qdcm.so
-
-# Display (SDM)
-vendor/etc/display/advanced_sf_offsets.xml
-vendor/etc/display/DPU660.xml
-vendor/etc/display/DPU670.xml
-vendor/etc/display/DPU720.xml
-vendor/etc/display/DPU7__.xml
-vendor/lib64/libdisplayqos.so
-vendor/lib64/libdisplayskuutils.so
-vendor/lib64/libqseed3.so
-vendor/lib64/librcmask.so
-vendor/lib64/libsdedrm.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-colormgr-algo.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libtinyxml2_1.so
-
-# Display calibration data
-vendor/etc/ltm_config_samsung_amb655x_fhd_cmd_mode_dsc_dsi_panel.xml
-vendor/etc/ltm_config_samsung_amb670yf01_dsc_cmd_mode_panel.xml
-vendor/etc/qdcm_calib_data_samsung_amb655x_fhd_cmd_mode_dsc_dsi_panel.xml
-vendor/etc/qdcm_calib_data_samsung_amb670yf01_dsc_cmd_mode_panel.xml
-
-# Display postprocessing
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/bin/ppd
-vendor/etc/init/vendor.display.color@1.0-service.rc
-vendor/lib64/libdisp-aba.so
-vendor/lib64/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.color@1.1.so
-vendor/lib64/vendor.display.color@1.2.so
-vendor/lib64/vendor.display.color@1.3.so
-vendor/lib64/vendor.display.color@1.4.so
-vendor/lib64/vendor.display.color@1.5.so
-vendor/lib64/vendor.display.postproc@1.0.so
 
 # DPM
 system_ext/bin/dpmd
@@ -1104,55 +1011,6 @@ odm/vendor/firmware/goodixfp.mdt
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-
-# Graphics (Adreno)
-vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libq3dtools_esx.so
-vendor/lib/libadreno_app_profiles.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libC2D2.so
-vendor/lib/libc2d30_bltlib.so
-vendor/lib/libCB.so
-vendor/lib/libgpudataproducer.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/libVkLayer_q3dtools.so
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/libadreno_app_profiles.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libC2D2.so
-vendor/lib64/libc2d30_bltlib.so
-vendor/lib64/libCB.so
-vendor/lib64/libgpudataproducer.so
-vendor/lib64/libgsl.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libVkLayer_q3dtools.so
-
-# Graphics (Adreno firmware)
-vendor/firmware/a660_gmu.bin
-vendor/firmware/a660_sqe.fw
-vendor/firmware/a660_zap.b00
-vendor/firmware/a660_zap.b01
-vendor/firmware/a660_zap.b02
-vendor/firmware/a660_zap.elf
-vendor/firmware/a660_zap.mdt
-
-# Graphics (Vulkan)
-vendor/lib/hw/vulkan.adreno.so
-vendor/lib64/hw/vulkan.adreno.so
 
 # GNSS
 odm/etc/izat.conf
@@ -1395,48 +1253,6 @@ vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
-
-# Media
-odm/lib/libaiboost_qnn_sr.so
-odm/lib/libaiboost_sr.so
-odm/lib/libaiboost_ubwc.so
-odm/lib/liboplusvppfilter.so
-odm/lib/libosie_process.so
-odm/lib/libosie_stub.so
-system_ext/lib/libmmosal.so
-system_ext/lib/libmmparser_lite.so
-system_ext/lib64/libmmosal.so
-vendor/bin/hw/vendor.qti.media.c2@1.0-service
-vendor/bin/init.qti.media.sh
-vendor/etc/init/init.qti.media.rc
-vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
-vendor/etc/media_lahaina/video_system_specs.json
-vendor/etc/media/video_system_specs.json
-vendor/etc/media_codecs.xml
-vendor/etc/media_codecs_lahaina.xml
-vendor/etc/media_codecs_lahaina_vendor.xml
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_codecs_performance_lahaina.xml
-vendor/etc/media_codecs_performance_lahaina_vendor.xml
-vendor/etc/media_codecs_vendor_audio.xml
-vendor/etc/media_profiles.xml
-vendor/etc/media_profiles_V1_0.xml
-vendor/etc/media_profiles_lahaina.xml
-vendor/etc/media_profiles_lahaina_vendor.xml
-vendor/etc/media_profiles_vendor.xml
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml
-vendor/etc/video_system_specs.json
-vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
-vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
-vendor/lib/libqc2vppfilter.so
-vendor/lib/libqcodec2_base.so
-vendor/lib/libqcodec2_basecodec.so
-vendor/lib/libqcodec2_core.so
-vendor/lib/libqcodec2_hooks.so
-vendor/lib/libqcodec2_platform.so
-vendor/lib/libqcodec2_utils.so
-vendor/lib/libqcodec2_v4l2codec.so
-vendor/lib64/libmmosal.so
 
 # Native public libraries
 vendor/etc/public.libraries.txt
