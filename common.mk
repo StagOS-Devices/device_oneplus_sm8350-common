@@ -314,6 +314,9 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libstagefrighthw
 
+# OnePlus addons
+$(call inherit-product-if-exists, vendor/addons/oneplus/config.mk)
+
 # Overlays
 $(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
 
