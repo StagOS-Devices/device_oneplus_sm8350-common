@@ -13,6 +13,6 @@ public class OplusFeatureConfigManager {
     }
 
     boolean hasFeature() throws RemoteException {
-        return false;
+        return true;
     }
 }
