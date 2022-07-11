@@ -133,6 +133,9 @@ vendor.media.vpp.enable=0
 vendor.media.vpp.osie.enable=0
 vendor.media.vpp.sr.enable=0
 
+# OnePlus
+vendor.product.manufacturer=OPD
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
