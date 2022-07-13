@@ -21,37 +21,45 @@ import android.content.Context;
 import android.hardware.input.InputManager;
 import android.media.AudioManager;
 import android.os.VibrationEffect;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import androidx.annotation.Keep;
+import androidx.preference.ListPreference;
 
 import com.android.internal.os.DeviceKeyHandler;
 
+import org.nameless.device.OnePlusSettings.Constants;
+import org.nameless.device.OnePlusSettings.Controllers.NotificationRingerController;
 import org.nameless.device.OnePlusSettings.Utils.FileUtils;
-import org.nameless.device.OnePlusSettings.Utils.VibrationUtils;
-import org.nameless.device.OnePlusSettings.Utils.VolumeUtils;
+import org.nameless.device.OnePlusSettings.MainSettings;
 
 @Keep
 public class KeyHandler implements DeviceKeyHandler {
 
-    // Slider key codes
-    private static final String MODE_NORMAL = "3";
-    private static final String MODE_VIBRATION = "2";
-    private static final String MODE_SILENCE = "1";
+    private static final String KEY_ALERT_SLIDER_TOP_POSITION = "alert_slider_top_position";
+    private static final String KEY_ALERT_SLIDER_MIDDLE_POSITION = "alert_slider_middle_position"; 
+    private static final String KEY_ALERT_SLIDER_BOTTOM_POSITION = "alert_slider_bottom_position";
 
-    private final Context mContext;
-    private final AudioManager mAudioManager;
     private final InputManager mInputManager;
 
-    private String lastCode;
+    // Controllers
+    private final NotificationRingerController mNotificationRingerController;
+
+    private final Context mContext;
+
+    private String lastActionCode;
+    private String actionCode;
 
     public KeyHandler(Context context) {
         mContext = context;
 
-        mAudioManager = mContext.getSystemService(AudioManager.class);
         mInputManager = mContext.getSystemService(InputManager.class);
+        
+        mNotificationRingerController = new NotificationRingerController(context);
 
-        lastCode = MODE_NORMAL;
+        lastActionCode = MainSettings.mAlertSliderBottomActionValue;
+        actionCode = lastActionCode;
     }
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
@@ -65,26 +73,29 @@ public class KeyHandler implements DeviceKeyHandler {
 
         final String scanCode = FileUtils.readOneLine("/proc/tristatekey/tri_state").trim();
 
-        switch (scanCode) {
-            case MODE_NORMAL:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
-                VibrationUtils.doHapticFeedback(mContext, VibrationEffect.EFFECT_HEAVY_CLICK, true);
-                if (lastCode.equals(MODE_SILENCE)) VolumeUtils.changeMediaVolume(mAudioManager, mContext);
+        switch(scanCode){
+            case Constants.MODE_TOP:
+                Log.d("KeyHandler", "Top");
+                actionCode = MainSettings.mAlertSliderTopActionValue;
                 break;
-            case MODE_VIBRATION:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
-                VibrationUtils.doHapticFeedback(mContext, VibrationEffect.EFFECT_DOUBLE_CLICK, true);
-                if (lastCode.equals(MODE_SILENCE)) VolumeUtils.changeMediaVolume(mAudioManager, mContext);
+            case Constants.MODE_MIDDLE:
+                Log.d("KeyHandler", "Middle");
+                actionCode = MainSettings.mAlertSliderMiddleActionValue;
                 break;
-            case MODE_SILENCE:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
-                VolumeUtils.changeMediaVolume(mAudioManager, mContext);
+            case Constants.MODE_BOTTOM:
+                Log.d("KeyHandler", "Bottom");
+                actionCode = MainSettings.mAlertSliderBottomActionValue;
                 break;
             default:
-                return event;
+                actionCode = lastActionCode;
+                break;
         }
 
-        lastCode = scanCode;
+        boolean actionStatus = mNotificationRingerController.processAction(actionCode, lastActionCode);
+        if(!actionStatus)
+            return event;
+
+        lastActionCode = actionCode;
 
         return null;
     }

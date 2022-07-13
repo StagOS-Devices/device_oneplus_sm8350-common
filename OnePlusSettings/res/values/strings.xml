@@ -107,4 +107,15 @@
     <!-- QS tile -->
     <string name="qs_tile_status_off">Off</string>
     <string name="qs_tile_status_on">On</string>
+
+    <!-- Alert Slider Actions -->
+     <string name="alert_slider_actions_title">Alert Slider Actions</string>
+     <string name="alert_slider_selection_dialog_title">Action</string>
+     <string name="alert_slider_top_position">Top Position</string>
+     <string name="alert_slider_middle_position">Middle Position</string>
+     <string name="alert_slider_bottom_position">Bottom Position</string>
+     <string name="alert_slider_action_none">None</string>
+     <string name="alert_slider_action_ring">Ring</string>
+     <string name="alert_slider_action_silent">Silent</string>
+     <string name="alert_slider_action_vibrate">Vibrate</string>
 </resources>

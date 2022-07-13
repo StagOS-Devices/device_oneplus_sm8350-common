@@ -37,6 +37,7 @@ import androidx.preference.PreferenceManager;
 
 import com.qualcomm.qcrilmsgtunnel.IQcrilMsgTunnel;
 
+import org.nameless.device.OnePlusSettings.Constants;
 import org.nameless.device.OnePlusSettings.Doze.DozeSettingsActivity;
 import org.nameless.device.OnePlusSettings.Preferences.CustomSeekBarPreference;
 import org.nameless.device.OnePlusSettings.Preferences.SwitchPreference;
@@ -60,15 +61,27 @@ public class MainSettings extends PreferenceFragment
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
 
+    public static final String KEY_ALERT_SLIDER_TOP_POSITION = "alert_slider_top_position";
+    public static final String KEY_ALERT_SLIDER_MIDDLE_POSITION = "alert_slider_middle_position"; 
+    public static final String KEY_ALERT_SLIDER_BOTTOM_POSITION = "alert_slider_bottom_position";
+
     private static final String KEY_PREF_DOZE = "advanced_doze_settings";
     private static final String KEY_FPS_INFO_POSITION = "fps_info_position";
     private static final String KEY_FPS_INFO_COLOR = "fps_info_color";
     private static final String KEY_FPS_INFO_TEXT_SIZE = "fps_info_text_size";
     private static final String KEY_NR_MODE_SWITCHER = "nr_mode_switcher";
 
+    // Mutable strings
+    public static String mAlertSliderTopActionValue = Constants.ACTION_SILENT;
+    public static String mAlertSliderMiddleActionValue = Constants.ACTION_VIBRATE;
+    public static String mAlertSliderBottomActionValue = Constants.ACTION_RING;
+
     private ListPreference mFpsInfoColor;
     private ListPreference mFpsInfoPosition;
     private ListPreference mNrModeSwitcher;
+    private ListPreference mAlertSliderTopAction;
+    private ListPreference mAlertSliderMiddleAction;
+    private ListPreference mAlertSliderBottomAction;
     private Preference mDozeSettings;
     private SwitchPreference mMuteMedia;
     private SwitchPreference mDCModeSwitch;
@@ -121,6 +134,7 @@ public class MainSettings extends PreferenceFragment
             mDCModeSwitch.setEnabled(false);
             mDCModeSwitch.setSummary(getString(R.string.unsupported_feature));
         }
+
         mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled());
         mDCModeSwitch.setOnPreferenceChangeListener(DCModeSwitch);
 
@@ -161,6 +175,15 @@ public class MainSettings extends PreferenceFragment
 
         mFpsInfoColor = (ListPreference) findPreference(KEY_FPS_INFO_COLOR);
         mFpsInfoColor.setOnPreferenceChangeListener(this);
+
+        mAlertSliderTopAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_TOP_POSITION);
+        mAlertSliderTopAction.setOnPreferenceChangeListener(this);
+
+        mAlertSliderMiddleAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_MIDDLE_POSITION);
+        mAlertSliderMiddleAction.setOnPreferenceChangeListener(this);
+
+        mAlertSliderBottomAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_BOTTOM_POSITION);
+        mAlertSliderBottomAction.setOnPreferenceChangeListener(this);
 
         mFpsInfoTextSizePreference = (CustomSeekBarPreference) findPreference(KEY_FPS_INFO_TEXT_SIZE);
         mFpsInfoTextSizePreference.setOnPreferenceChangeListener(this);
@@ -234,6 +257,15 @@ public class MainSettings extends PreferenceFragment
                     putInt(KEY_VIBSTRENGTH, value).commit();
             VibrationUtils.setVibStrength(context, value);
             VibrationUtils.doHapticFeedback(context, VibrationEffect.EFFECT_CLICK, true);
+        } else if (preference == mAlertSliderTopAction) {
+            String value = newValue.toString();
+            mAlertSliderTopActionValue = value;
+        } else if (preference == mAlertSliderMiddleAction) {
+            String value = newValue.toString();
+            mAlertSliderMiddleActionValue = value;
+        } else if (preference == mAlertSliderBottomAction) {
+            String value = newValue.toString();
+            mAlertSliderBottomActionValue = value;
         }
         return true;
     }
