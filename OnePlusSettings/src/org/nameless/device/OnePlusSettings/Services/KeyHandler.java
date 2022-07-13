@@ -37,10 +37,6 @@ import org.nameless.device.OnePlusSettings.MainSettings;
 @Keep
 public class KeyHandler implements DeviceKeyHandler {
 
-    private static final String KEY_ALERT_SLIDER_TOP_POSITION = "alert_slider_top_position";
-    private static final String KEY_ALERT_SLIDER_MIDDLE_POSITION = "alert_slider_middle_position"; 
-    private static final String KEY_ALERT_SLIDER_BOTTOM_POSITION = "alert_slider_bottom_position";
-
     private final InputManager mInputManager;
 
     // Controllers
@@ -63,6 +59,7 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
+    
         if (event.getAction() != KeyEvent.ACTION_DOWN) {
             return event;
         }
@@ -72,19 +69,21 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         final String scanCode = FileUtils.readOneLine("/proc/tristatekey/tri_state").trim();
+        Log.d(Constants.TAG, "AlertSlider: KeyHandler: scanCode: " + scanCode);
 
         switch(scanCode){
             case Constants.MODE_TOP:
-                Log.d("KeyHandler", "Top");
-                actionCode = MainSettings.mAlertSliderTopActionValue;
+                Log.d("AlertSlider", "Top");
+                actionCode = MainSettings.getAlertSliderTopActionValue();
+                Log.d("AlertSlider", "TopAction: " + actionCode);
                 break;
             case Constants.MODE_MIDDLE:
-                Log.d("KeyHandler", "Middle");
-                actionCode = MainSettings.mAlertSliderMiddleActionValue;
+                actionCode = MainSettings.getAlertSliderMiddleActionValue();
+                Log.d("AlertSlider", "Middle Action: " + actionCode);
                 break;
             case Constants.MODE_BOTTOM:
-                Log.d("KeyHandler", "Bottom");
-                actionCode = MainSettings.mAlertSliderBottomActionValue;
+                actionCode = MainSettings.getAlertSliderBottomActionValue();
+                Log.d("AlertSlider", "Bottom action: " + actionCode);
                 break;
             default:
                 actionCode = lastActionCode;

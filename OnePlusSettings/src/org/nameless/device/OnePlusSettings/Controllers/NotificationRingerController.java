@@ -18,10 +18,14 @@
 package org.nameless.device.OnePlusSettings.Controllers;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.VibrationEffect;
 import android.util.Log;
 import android.view.KeyEvent;
+
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceManager;
 
 import androidx.annotation.Keep;
 
@@ -38,45 +42,61 @@ public final class NotificationRingerController {
     private final Context mContext;
     private final AudioManager mAudioManager;
 
+    private final SharedPreferences mSharedPreferences;
+
     public NotificationRingerController(Context context) {
         mContext = context;
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        
         mAudioManager = mContext.getSystemService(AudioManager.class);
     }
 
     public boolean processAction(String actionCode, String lastActionCode) {
 
-        Log.d(TAG, "processAction: actionCode=" + actionCode + " lastActionCode=" + lastActionCode);
+        // Get Top action value from SharedPreferences
+        String topAction = mSharedPreferences.getString(Constants.KEY_ALERT_SLIDER_TOP_POSITION, "2");
+        
+        // Get Middle action value from SharedPreferences
+        String middleAction = mSharedPreferences.getString(Constants.KEY_ALERT_SLIDER_MIDDLE_POSITION, "3");
+
+        // Get Bottom action value from SharedPreferences
+        String bottomAction = mSharedPreferences.getString(Constants.KEY_ALERT_SLIDER_BOTTOM_POSITION, "1");
+
+        Log.d(TAG, "AlertSlider: topAction: " + topAction);
+        Log.d(TAG, "AlertSlider: middleAction: " + middleAction);
+        Log.d(TAG, "AlertSlider: bottomAction: " + bottomAction);
+
         if (actionCode.equals(Constants.ACTION_NONE)) {
-            Log.d(TAG, "processAction: actionCode=ACTION_NONE");
+            Log.d(TAG, "AlertSlider: actionCode=ACTION_NONE");
             return false;
         }
 
         if (actionCode.equals(lastActionCode)) {
-            Log.d(TAG, "processAction: actionCode=lastActionCode");
+            Log.d(TAG, "AlertSlider: actionCode=lastActionCode");
             return false;
         }
 
         switch (actionCode) {
             case Constants.ACTION_SILENT:
-                Log.d(TAG, "processAction: actionCode=ACTION_SILENT");
+                Log.d(TAG, "AlertSlider: actionCode=ACTION_SILENT");
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
                 VolumeUtils.changeMediaVolume(mAudioManager, mContext);
                 break;
             case Constants.ACTION_VIBRATE:
-                Log.d(TAG, "processAction: actionCode=ACTION_VIBRATE");
+                Log.d(TAG, "AlertSlider: actionCode=ACTION_VIBRATE");
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
                 VibrationUtils.doHapticFeedback(mContext, VibrationEffect.EFFECT_DOUBLE_CLICK, true);
                 if (lastActionCode.equals(Constants.ACTION_SILENT)) VolumeUtils.changeMediaVolume(mAudioManager, mContext);
                 break;
             case Constants.ACTION_RING:
-                Log.d(TAG, "processAction: actionCode=ACTION_RING");
+                Log.d(TAG, "AlertSlider: actionCode=ACTION_RING");
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
                 VibrationUtils.doHapticFeedback(mContext, VibrationEffect.EFFECT_HEAVY_CLICK, true);
                 if (lastActionCode.equals(Constants.ACTION_SILENT)) VolumeUtils.changeMediaVolume(mAudioManager, mContext);
                 break;
             default:
-                Log.d(TAG, "processAction: actionCode=default");
+                Log.d(TAG, "AlertSlider: actionCode=default");
                 return false;
         }
         return true;

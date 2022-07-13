@@ -27,6 +27,7 @@ import android.os.IBinder;
 import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.telephony.SubscriptionManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.ListPreference;
@@ -61,10 +62,6 @@ public class MainSettings extends PreferenceFragment
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
 
-    public static final String KEY_ALERT_SLIDER_TOP_POSITION = "alert_slider_top_position";
-    public static final String KEY_ALERT_SLIDER_MIDDLE_POSITION = "alert_slider_middle_position"; 
-    public static final String KEY_ALERT_SLIDER_BOTTOM_POSITION = "alert_slider_bottom_position";
-
     private static final String KEY_PREF_DOZE = "advanced_doze_settings";
     private static final String KEY_FPS_INFO_POSITION = "fps_info_position";
     private static final String KEY_FPS_INFO_COLOR = "fps_info_color";
@@ -74,7 +71,7 @@ public class MainSettings extends PreferenceFragment
     // Mutable strings
     public static String mAlertSliderTopActionValue = Constants.ACTION_SILENT;
     public static String mAlertSliderMiddleActionValue = Constants.ACTION_VIBRATE;
-    public static String mAlertSliderBottomActionValue = Constants.ACTION_RING;
+    public static String  mAlertSliderBottomActionValue = Constants.ACTION_RING;
 
     private ListPreference mFpsInfoColor;
     private ListPreference mFpsInfoPosition;
@@ -176,13 +173,13 @@ public class MainSettings extends PreferenceFragment
         mFpsInfoColor = (ListPreference) findPreference(KEY_FPS_INFO_COLOR);
         mFpsInfoColor.setOnPreferenceChangeListener(this);
 
-        mAlertSliderTopAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_TOP_POSITION);
+        mAlertSliderTopAction = (ListPreference) findPreference(Constants.KEY_ALERT_SLIDER_TOP_POSITION);
         mAlertSliderTopAction.setOnPreferenceChangeListener(this);
 
-        mAlertSliderMiddleAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_MIDDLE_POSITION);
+        mAlertSliderMiddleAction = (ListPreference) findPreference(Constants.KEY_ALERT_SLIDER_MIDDLE_POSITION);
         mAlertSliderMiddleAction.setOnPreferenceChangeListener(this);
 
-        mAlertSliderBottomAction = (ListPreference) findPreference(KEY_ALERT_SLIDER_BOTTOM_POSITION);
+        mAlertSliderBottomAction = (ListPreference) findPreference(Constants.KEY_ALERT_SLIDER_BOTTOM_POSITION);
         mAlertSliderBottomAction.setOnPreferenceChangeListener(this);
 
         mFpsInfoTextSizePreference = (CustomSeekBarPreference) findPreference(KEY_FPS_INFO_TEXT_SIZE);
@@ -259,15 +256,29 @@ public class MainSettings extends PreferenceFragment
             VibrationUtils.doHapticFeedback(context, VibrationEffect.EFFECT_CLICK, true);
         } else if (preference == mAlertSliderTopAction) {
             String value = newValue.toString();
-            mAlertSliderTopActionValue = value;
+            this.mAlertSliderTopActionValue = value;
+            Log.d("AlertSlider", "onPreferenceChange: mAlertSliderTopActionValue = " + mAlertSliderTopActionValue);
         } else if (preference == mAlertSliderMiddleAction) {
             String value = newValue.toString();
-            mAlertSliderMiddleActionValue = value;
+            this.mAlertSliderMiddleActionValue = value;
+            Log.d("AlertSlider", "onPreferenceChange: mAlertSliderMiddleActionValue = " + mAlertSliderMiddleActionValue);
         } else if (preference == mAlertSliderBottomAction) {
             String value = newValue.toString();
-            mAlertSliderBottomActionValue = value;
+            this.mAlertSliderBottomActionValue = value;
+            Log.d("AlertSlider", "onPreferenceChange: mAlertSliderBottomActionValue = " + mAlertSliderBottomActionValue);
         }
         return true;
+    }
+
+    // Public getter function for the alert slider actions
+    public static String getAlertSliderTopActionValue() {
+        return mAlertSliderTopActionValue;
+    }
+    public static String getAlertSliderMiddleActionValue() {
+        return mAlertSliderMiddleActionValue;
+    }
+    public static String getAlertSliderBottomActionValue() {
+        return mAlertSliderBottomActionValue;
     }
 
     private boolean setNrModeChecked(int mode) {
