@@ -7,6 +7,9 @@ persist.vendor.bt.a2dp.aac_whitelist=false
 persist.vendor.bt.a2dp.hal.implementation=true
 ro.bluetooth.library_name=libbluetooth_qti.so
 
+# Camera
+camera.disable_zsl_mode=true
+
 # Display
 debug.sf.enable_hwc_vds=1
 debug.sf.latch_unsignaled=1
