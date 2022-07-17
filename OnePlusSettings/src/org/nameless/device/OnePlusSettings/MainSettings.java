@@ -63,6 +63,7 @@ public class MainSettings extends PreferenceFragment
     
     public static final String KEY_MUTE_MEDIA = "mute_media";
     public static final String KEY_DC_SWITCH = "dc_dim";
+    public static final String KEY_EDGE_SWITCH = "edge";
     public static final String KEY_AUTO_HBM_SWITCH = "auto_hbm";
     public static final String KEY_AUTO_HBM_THRESHOLD = "auto_hbm_threshold";
     public static final String KEY_HBM_SWITCH = "hbm";
@@ -86,6 +87,7 @@ public class MainSettings extends PreferenceFragment
     private Preference mDozeSettings;
     private SwitchPreference mMuteMedia;
     private SwitchPreference mDCModeSwitch;
+    private SwitchPreference mEdgeModeSwitch;
     private SwitchPreference mAutoHBMSwitch;
     private SwitchPreference mHBMModeSwitch;
     private SwitchPreference mFpsInfo;
@@ -93,8 +95,9 @@ public class MainSettings extends PreferenceFragment
     private VibratorStrengthPreference mVibratorStrengthPreference;
 
     private ModeSwitch DCModeSwitch;
+    private ModeSwitch EdgeModeSwitch;
     private ModeSwitch HBMModeSwitch;
-
+    
     private Protocol mProtocol;
     private Runnable mUnbindService;
 
@@ -137,6 +140,18 @@ public class MainSettings extends PreferenceFragment
         }
         mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled());
         mDCModeSwitch.setOnPreferenceChangeListener(DCModeSwitch);
+
+        mEdgeModeSwitch = (SwitchPreference) findPreference(KEY_EDGE_SWITCH);
+        EdgeModeSwitch = SwitchUtils.getEdgeModeSwitch(context, mEdgeModeSwitch);
+        if (EdgeModeSwitch.isSupported()) {
+            mEdgeModeSwitch.setEnabled(true);
+        } else {
+            mEdgeModeSwitch.setEnabled(false);
+            mEdgeModeSwitch.setSummary(getString(R.string.unsupported_feature));
+        }
+        mEdgeModeSwitch.setChecked(EdgeModeSwitch.isCurrentlyEnabled());
+        mEdgeModeSwitch.setOnPreferenceChangeListener(EdgeModeSwitch);
+
 
         mHBMModeSwitch = (SwitchPreference) findPreference(KEY_HBM_SWITCH);
         HBMModeSwitch = SwitchUtils.getHBMModeSwitch(context, mHBMModeSwitch);
@@ -223,6 +238,8 @@ public class MainSettings extends PreferenceFragment
     public void onResume() {
         super.onResume();
         mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled());
+        mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled());
+        mEdgeModeSwitch.setChecked(EdgeModeSwitch.isCurrentlyEnabled());
         mFpsInfo.setChecked(FpsUtils.isFPSOverlayRunning(getContext()));
     }
 

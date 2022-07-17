@@ -144,4 +144,8 @@
     <!-- QS tile -->
     <string name="qs_tile_status_off">Off</string>
     <string name="qs_tile_status_on">On</string>
+
+    <!-- Edge Touch -->
+    <string name="edge_touch_title">Unlimit edge touch</string>
+    <string name="edge_touch_summary">Improve your multi-touch experience in games</string>
 </resources>

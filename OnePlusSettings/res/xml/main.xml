@@ -86,13 +86,21 @@
             android:key="dc_dim"
             android:icon="@drawable/ic_dc_mode"
             android:summary="@string/dc_mode_summary"
-            android:title="@string/dc_mode_title" />
+            android:title="@string/dc_mode_title"
+            android:defaultValue="false" />
 
         <org.nameless.device.OnePlusSettings.Preferences.SwitchPreference
             android:key="hbm"
             android:icon="@drawable/ic_hbm_mode"
             android:summary="@string/hbm_mode_summary"
             android:title="@string/hbm_mode_title"
+            android:defaultValue="false" />
+
+        <org.nameless.device.OnePlusSettings.Preferences.SwitchPreference
+            android:key="edge"
+            android:icon="@drawable/ic_edge_touch"
+            android:summary="@string/edge_touch_summary"
+            android:title="@string/edge_touch_title"
             android:defaultValue="false" />
     </PreferenceCategory>
 

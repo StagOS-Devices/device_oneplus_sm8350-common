@@ -47,6 +47,10 @@ public class Startup extends BroadcastReceiver {
         modeSwitch = SwitchUtils.getDCModeSwitch(context);
         if (enabled) modeSwitch.setEnabled(true);
 
+        enabled = sharedPrefs.getBoolean(MainSettings.KEY_EDGE_SWITCH, false);
+        modeSwitch = SwitchUtils.getEdgeModeSwitch(context);
+        if (enabled) modeSwitch.setEnabled(true);
+
         enabled = sharedPrefs.getBoolean(MainSettings.KEY_HBM_SWITCH, false);
         modeSwitch = SwitchUtils.getHBMModeSwitch(context);
         if (enabled) modeSwitch.setEnabled(true);
