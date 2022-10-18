@@ -319,6 +319,7 @@ PRODUCT_PACKAGES += \
     OPlusFrameworksResCommon \
     OPlusSettingsResCommon \
     OPlusSystemUIResCommon \
+    StagSettingsProviderResCommon \
     WifiResTarget
 
 # Partitions
