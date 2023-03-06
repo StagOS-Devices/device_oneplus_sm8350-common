@@ -1675,6 +1675,10 @@ vendor/lib64/libOmxMpeghEncSw.so
 vendor/lib64/libOmxQcelp13Dec.so
 vendor/lib64/libOmxWmaDec.so
 
+# Osense
+odm/lib64/libosensehalclient.so
+odm/lib64/vendor.oplus.hardware.osense.client@1.0.so
+
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
