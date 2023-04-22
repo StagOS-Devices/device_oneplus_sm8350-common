@@ -44,6 +44,11 @@
     <string name="node_powershare_mode_switch_true">enable</string>
     <string name="node_powershare_mode_switch_false">disable</string>
 
+    <!-- Power Efficient Workqueue sysfs node path, true, false -->
+    <string name="node_power_efficient_workqueue_mode_switch">/sys/module/workqueue/parameters/power_efficient</string>
+    <string name="node_power_efficient_workqueue_mode_switch_true">Y</string>
+    <string name="node_power_efficient_workqueue_mode_switch_false">N</string>
+
     <!-- TP Edge Limit procfs node path -->
     <string name="node_tp_edge_limit_mode_switch">/proc/touchpanel/oplus_tp_direction</string>
     <string name="node_tp_edge_limit_mode_switch_true">1</string>
@@ -53,6 +58,17 @@
     <string name="node_quiet_mode_switch">/proc/wireless/user_sleep_mode</string>
     <string name="node_quiet_mode_switch_true">1</string>
     <string name="node_quiet_mode_switch_false">0</string>
+
+
+    <!-- GameMode procfs node path -->
+    <string name="node_game_mode_switch">/proc/touchpanel/game_switch_enable</string>
+    <string name="node_game_mode_switch_true">1, high_frame_support:0, high_frame_value:0</string>
+    <string name="node_game_mode_switch_false">0, high_frame_support:0, high_frame_value:0</string>
+
+    <!-- USB-OTG sysfs node path, true, false -->
+    <string name="node_otg_mode_switch">/sys/class/oplus_chg/usb/otg_switch</string>
+    <string name="node_otg_mode_switch_true">1</string>
+    <string name="node_otg_mode_switch_false">0</string>
 
     <!-- USB 2.0 Force fastcharge sysfs node path -->
     <string name="node_usb2_fast_charge_mode_switch">/sys/module/oplus_chg/parameters/force_fast_charge</string>

@@ -15,6 +15,10 @@ on boot
     chown system system /sys/kernel/oplus_display/hbm
     chmod 0666 /sys/kernel/oplus_display/hbm
 
+    # Game mode
+    chown system system /proc/touchpanel/game_switch_enable
+    chmod 0666 /proc/touchpanel/game_switch_enable
+
     # Kcal
     chown system graphics /sys/module/msm_drm/parameters/kcal_red
     chmod 0666 /sys/module/msm_drm/parameters/kcal_red
@@ -35,7 +39,7 @@ on boot
     chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
     chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
 
-    #Power Efficient Workqueue
+    # Power Efficient Workqueue
     chown system system /sys/module/workqueue/parameters/power_efficient
     chmod 0666 /sys/module/workqueue/parameters/power_efficient
 
@@ -46,6 +50,10 @@ on boot
     # Quiet Mode
     chown system system /proc/wireless/user_sleep_mode
     chmod 0666 /proc/wireless/user_sleep_mode
+
+    # USB-OTG
+    chown system /sys/class/oplus_chg/usb/otg_switch
+    chmod 0666 /sys/class/oplus_chg/usb/otg_switch
 
     # TP-edge limit 
     chown system system /proc/touchpanel/oplus_tp_direction
